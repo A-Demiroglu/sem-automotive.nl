@@ -1,0 +1,264 @@
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#0b0b0b;
+  color:#e5e7eb;
+}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 40px;
+  background:#0b0b0b;
+  border-bottom:1px solid #1f1f1f;
+}
+.nav img{height:200px}
+.nav a{
+  margin-left:28px;
+  font-weight:600;
+  color:#e5e7eb;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),#111;
+  padding:140px 20px;
+  text-align:center;
+}
+.hero h1{font-size:52px;margin-bottom:15px}
+.hero p{font-size:20px;max-width:820px;margin:0 auto 30px;color:#cbd5e1}
+
+/* BUTTON */
+.btn{
+  background:#b11226;
+  color:#fff;
+  padding:16px 36px;
+  border-radius:6px;
+  font-weight:700;
+}
+
+/* LAYOUT */
+.container{max-width:1200px;margin:auto;padding:90px 20px}
+.section{margin-bottom:90px}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:#121212;
+  padding:34px;
+  border-radius:14px;
+  border:1px solid #1f1f1f;
+}
+
+/* VOORRAAD GRID */
+.cars{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:36px;
+}
+
+/* VOORRAAD CARD */
+.car{
+  background:#121212;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #1f1f1f;
+  transition:transform .2s, border-color .2s;
+}
+.car:hover{
+  transform:translateY(-6px);
+  border-color:#2a2a2a;
+}
+
+/* ===== DISPLAY (DETAILPAGINA FOTO'S) ===== */
+/* Zet jouw detail-foto blok in een container met class="car-display" */
+/* Hoofdfoto / display */
+.car-display{
+  margin:30px 0 26px;
+}
+.car-display .main{
+  position:relative;
+  width:100%;
+  background:#0f0f0f;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #1f1f1f;
+
+  /* Dit voorkomt super grote foto’s op mobiel */
+  aspect-ratio: 16 / 9;
+  max-height: 520px;
+}
+.car-display .main img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* pijltjes */
+.car-display .navbtn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;
+  height:46px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(10,10,10,.55);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+  transition:transform .15s, background .15s, border-color .15s;
+}
+.car-display .navbtn:hover{
+  transform:translateY(-50%) scale(1.06);
+  background:rgba(10,10,10,.75);
+  border-color:rgba(255,255,255,.26);
+}
+.car-display .navbtn.prev{ left:14px; }
+.car-display .navbtn.next{ right:14px; }
+
+/* thumbnails */
+.car-display .thumbs{
+  margin-top:14px;
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:6px;
+  -webkit-overflow-scrolling:touch;
+}
+.car-display .thumb{
+  flex:0 0 auto;
+  width:120px;
+  height:76px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #1f1f1f;
+  background:#0f0f0f;
+  cursor:pointer;
+  opacity:.85;
+  transition:transform .15s, opacity .15s, border-color .15s;
+}
+.car-display .thumb:hover{
+  transform:translateY(-2px);
+  opacity:1;
+  border-color:#2a2a2a;
+}
+.car-display .thumb.active{
+  opacity:1;
+  border-color:#b11226;
+}
+.car-display .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* ===== VOORRAAD (LISTING) FOTO BOVENAAN + INFO ERONDER ===== */
+.car .car-media{
+  width:100%;
+  aspect-ratio: 16 / 9;
+  background:#0f0f0f;
+  overflow:hidden;
+}
+.car .car-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.car .info{padding:22px}
+.price{color:#b11226;font-weight:700;margin-top:8px}
+
+/* Oude gallery blokken (als je ze nog ergens gebruikt) */
+.gallery img{
+  width:100%;
+  margin-bottom:22px;
+  border-radius:14px;
+}
+
+/* FOOTER */
+.footer{
+  background:#0b0b0b;
+  border-top:1px solid #1f1f1f;
+  text-align:center;
+  padding:40px 20px;
+  color:#9ca3af;
+}
+.footer .socials{
+  margin-top:14px;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+}
+
+/* GROTERE ICONEN */
+.footer .social{
+  width:60px;
+  height:60px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  border:1px solid #1f1f1f;
+  background:#121212;
+  font-size:30px;
+  transition:transform .2s, background .2s, border-color .2s;
+}
+.footer .social.fb{ color:#1877F2; }
+.footer .social.ig{ color:#E1306C; }
+.footer .social.wa{ color:#25D366; }
+.footer .social:hover{
+  transform:translateY(-3px) scale(1.08);
+  background:#0f0f0f;
+  border-color:#2a2a2a;
+}
+
+/* ===== RESPONSIVE (MOBIEL) ===== */
+@media (max-width: 900px){
+  .nav{padding:18px 18px}
+  .nav img{height:120px}
+  .hero{padding:110px 18px}
+  .hero h1{font-size:40px}
+  .hero p{font-size:18px}
+  .container{padding:60px 18px}
+}
+
+@media (max-width: 560px){
+  /* menu onder elkaar + minder ruimte */
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
+  .nav a{margin-left:0;margin-right:18px}
+
+  /* listing kaarten iets compacter */
+  .cars{gap:18px}
+  .card{padding:22px}
+  .car .info{padding:18px}
+
+  /* DISPLAY op detailpagina: nooit te groot */
+  .car-display .main{
+    aspect-ratio: 4 / 3;
+    max-height: min(45vh, 360px);
+  }
+  .car-display .navbtn{
+    width:40px;
+    height:40px;
+  }
+  .car-display .thumb{
+    width:96px;
+    height:64px;
+  }
+}

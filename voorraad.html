@@ -1,99 +1,206 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SEM Automotive</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bekijk de actuele voorraad sportieve en exclusieve occasions van SEM Automotive.">
+<title>Voorraad | SEM Automotive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/theme.css">
 </head>
-<body class="bg-light">
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="#">SEM Automotive</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
+      <img src="assets/images/logo.png" alt="SEM Automotive logo">
+      <span class="brand-text">
+        <span class="brand-name">SEM AUTOMOTIVE</span>
+        <span class="brand-tag">Premium occasions</span>
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menu openen">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="voorraad.html">Voorraad</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="voorraad.html">Voorraad</a></li>
         <li class="nav-item"><a class="nav-link" href="diensten.html">Diensten</a></li>
         <li class="nav-item"><a class="nav-link" href="over-ons.html">Over ons</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- AUTO'S SECTION -->
-<section class="py-5">
-  <div class="container-fluid">
-    <h2 class="text-center mb-4">Onze Voorraad</h2>
+<main class="page-shell">
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-panel" data-reveal>
+        <span class="eyebrow mb-3"><i class="fa-solid fa-car-on"></i> Actuele voorraad</span>
+        <h1>Professioneel gepresenteerde occasions, direct overzichtelijk in beeld.</h1>
+        <p class="lead-soft mb-0">De voorraadpagina is opnieuw opgebouwd met premium kaarten, betere witruimte en een heldere scheiding tussen beschikbare en verkochte auto's.</p>
+      </div>
+    </div>
+  </section>
 
-    <div class="row g-4">
+  <section class="section-space-sm">
+    <div class="container">
+      <div class="filter-pills mb-4" data-reveal>
+        <span class="filter-pill">1 beschikbaar</span>
+        <span class="filter-pill">5 verkocht</span>
+        <span class="filter-pill">Premium presentatie</span>
+        <span class="filter-pill">Persoonlijk contact</span>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-reveal>
+          <a href="auto-1.html" class="car-card d-block h-100" data-tilt>
+            <div class="car-media">
+              <img src="images/auto1/1.jpg" alt="BMW 320D F31 Automaat">
+            </div>
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="status-tag available"><i class="fa-solid fa-circle"></i> Beschikbaar</span>
+                <span class="price-tag">&euro; 10.499,-</span>
+              </div>
+              <h3 class="h4">BMW 320D F31 Automaat</h3>
+              <div class="car-meta">
+                <span class="car-chip"><i class="fa-solid fa-sun"></i> Pano</span>
+                <span class="car-chip"><i class="fa-solid fa-couch"></i> Leer</span>
+                <span class="car-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> M-Pakket</span>
+              </div>
+              <p class="lead-soft mb-0">Rijk uitgeruste touring met sterke uitstraling, onderhoud en performance-upgrades.</p>
+            </div>
+          </a>
+        </div>
 
-      <!-- CARD 1 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Auto">
-          <div class="card-body">
-            <h5 class="card-title">BMW 3 Serie</h5>
-            <p class="card-text">Bouwjaar 2018 • Automaat • Benzine</p>
-            <a href="#" class="btn btn-warning w-100">Bekijk</a>
-          </div>
+        <div class="col-lg-4 col-md-6" data-reveal>
+          <a href="auto-2.html" class="car-card d-block h-100" data-tilt>
+            <div class="placeholder-media">
+              <div class="placeholder-inner">
+                <strong>AUDI A6</strong>
+                <span>Verkocht</span>
+              </div>
+            </div>
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="status-tag sold"><i class="fa-solid fa-circle"></i> Verkocht</span>
+                <span class="text-secondary">Prijs op aanvraag</span>
+              </div>
+              <h3 class="h4">Audi A6</h3>
+              <p class="lead-soft mb-0">Verkochte premium occasion, nu als nette referentie in de portfolio-opzet.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-reveal>
+          <a href="auto-3.html" class="car-card d-block h-100" data-tilt>
+            <div class="placeholder-media">
+              <div class="placeholder-inner">
+                <strong>VW GOLF GTI</strong>
+                <span>Verkocht</span>
+              </div>
+            </div>
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="status-tag sold"><i class="fa-solid fa-circle"></i> Verkocht</span>
+                <span class="text-secondary">Prijs op aanvraag</span>
+              </div>
+              <h3 class="h4">Volkswagen Golf 2.0 GTI</h3>
+              <p class="lead-soft mb-0">Sportieve occasion die als verkochte case zichtbaar blijft voor uitstraling en vertrouwen.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-reveal>
+          <a href="auto-4.html" class="car-card d-block h-100" data-tilt>
+            <div class="placeholder-media">
+              <div class="placeholder-inner">
+                <strong>VW GOLF GTI</strong>
+                <span>Verkocht</span>
+              </div>
+            </div>
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="status-tag sold"><i class="fa-solid fa-circle"></i> Verkocht</span>
+                <span class="text-secondary">Prijs op aanvraag</span>
+              </div>
+              <h3 class="h4">Volkswagen Golf 2.0 GTI</h3>
+              <p class="lead-soft mb-0">Verkochte voorraadpositie in een consistente premium vormgeving zonder kapotte afbeeldingen.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-reveal>
+          <a href="auto-5.html" class="car-card d-block h-100" data-tilt>
+            <div class="placeholder-media">
+              <div class="placeholder-inner">
+                <strong>VW GOLF GTI</strong>
+                <span>Verkocht</span>
+              </div>
+            </div>
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="status-tag sold"><i class="fa-solid fa-circle"></i> Verkocht</span>
+                <span class="text-secondary">Prijs op aanvraag</span>
+              </div>
+              <h3 class="h4">Volkswagen Golf 2.0 GTI</h3>
+              <p class="lead-soft mb-0">Nette verkochte casepagina voor een verzorgd portfolio van eerder verkochte auto's.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-reveal>
+          <a href="auto-6.html" class="car-card d-block h-100" data-tilt>
+            <div class="placeholder-media">
+              <div class="placeholder-inner">
+                <strong>VW GOLF GTI</strong>
+                <span>Verkocht</span>
+              </div>
+            </div>
+            <div class="car-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="status-tag sold"><i class="fa-solid fa-circle"></i> Verkocht</span>
+                <span class="text-secondary">Prijs op aanvraag</span>
+              </div>
+              <h3 class="h4">Volkswagen Golf 2.0 GTI</h3>
+              <p class="lead-soft mb-0">Strakkere presentatie van een verkocht voertuig, passend bij de rest van de vernieuwde site.</p>
+            </div>
+          </a>
         </div>
       </div>
+    </div>
+  </section>
+</main>
 
-      <!-- CARD 2 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Auto">
-          <div class="card-body">
-            <h5 class="card-title">Audi A4</h5>
-            <p class="card-text">Bouwjaar 2019 • Diesel • Navigatie</p>
-            <a href="#" class="btn btn-warning w-100">Bekijk</a>
-          </div>
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-8">
+        <div class="footer-copy">
+          <strong>SEM Automotive</strong><br>
+          Dukdalf 16-8, 9202 BE Drachten<br>
+          0653299783 · info@sem-automotive.nl
         </div>
       </div>
-
-      <!-- CARD 3 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Auto">
-          <div class="card-body">
-            <h5 class="card-title">Volkswagen Golf</h5>
-            <p class="card-text">Bouwjaar 2020 • Handgeschakeld</p>
-            <a href="#" class="btn btn-warning w-100">Bekijk</a>
-          </div>
+      <div class="col-lg-4">
+        <div class="socials">
+          <a class="social" href="https://www.facebook.com/p/SEMperformance-61566745449635/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a class="social" href="https://www.instagram.com/sem_automotive/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="social" href="https://wa.me/31638075625" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
-
     </div>
   </div>
-</section>
-
-<!-- ONDERDELEN -->
-<section class="bg-dark text-white py-5">
-  <div class="container-fluid text-center">
-    <h2>Onderdelen nodig?</h2>
-    <p>Wij leveren onderdelen voor verschillende merken</p>
-    <a href="#" class="btn btn-warning">Bekijk onderdelen</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-secondary text-white text-center py-3">
-  <p class="mb-0">© 2026 SEM Automotive</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
-```
+
+
