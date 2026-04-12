@@ -16,10 +16,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
-      <img src="assets/images/logo.png" alt="SEM Automotive logo">
+      <img src="img/logo sem-automotive.png" alt="SEM Automotive logo">
       <span class="brand-text">
         <span class="brand-name">SEM AUTOMOTIVE</span>
-        <span class="brand-tag">Premium occasions</span>
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menu openen">
@@ -41,23 +40,96 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-panel" data-reveal>
-        <span class="eyebrow mb-3"><i class="fa-solid fa-car-on"></i> Actuele voorraad</span>
-        <h1>Professioneel gepresenteerde occasions, direct overzichtelijk in beeld.</h1>
-        <p class="lead-soft mb-0">De voorraadpagina is opnieuw opgebouwd met premium kaarten, betere witruimte en een heldere scheiding tussen beschikbare en verkochte auto's.</p>
       </div>
     </div>
   </section>
 
-  <section class="section-space-sm">
+  <section class="stock-filter-section">
     <div class="container">
-      <div class="filter-pills mb-4" data-reveal>
-        <span class="filter-pill">1 beschikbaar</span>
-        <span class="filter-pill">5 verkocht</span>
-        <span class="filter-pill">Premium presentatie</span>
-        <span class="filter-pill">Persoonlijk contact</span>
+      <div class="stock-search-shell" data-reveal data-stock-filters>
+        <div class="stock-search-tabs">
+          <button class="stock-search-tab is-active" type="button">Occasions</button>
+          <button class="stock-search-tab" type="button" data-filter-status-shortcut="available">Direct beschikbaar</button>
+          <button class="stock-search-tab" type="button" data-filter-status-shortcut="sold">Verkocht</button>
+        </div>
+        <div class="stock-search-body">
+          <div class="row g-3 align-items-end">
+            <div class="col-lg-3 col-md-6">
+              <label class="filter-label" for="stockBrand">Merk</label>
+              <select id="stockBrand" class="form-select" data-filter-brand>
+                <option value="all">Alle merken</option>
+                <option value="bmw">BMW</option>
+                <option value="audi">Audi</option>
+                <option value="volkswagen">Volkswagen</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <label class="filter-label" for="stockModel">Model</label>
+              <select id="stockModel" class="form-select" data-filter-model>
+                <option value="all">Alle modellen</option>
+                <option value="320d f31">320D F31</option>
+                <option value="a6">A6</option>
+                <option value="golf 2.0 gti">Golf 2.0 GTI</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockStatus">Status</label>
+              <select id="stockStatus" class="form-select" data-filter-status>
+                <option value="all">Alles</option>
+                <option value="available">Beschikbaar</option>
+                <option value="sold">Verkocht</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockTransmission">Transmissie</label>
+              <select id="stockTransmission" class="form-select" data-filter-transmission>
+                <option value="all">Alles</option>
+                <option value="automaat">Automaat</option>
+                <option value="handgeschakeld">Handgeschakeld</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockPriceMax">Max prijs</label>
+              <select id="stockPriceMax" class="form-select" data-filter-price-max>
+                <option value="all">Geen limiet</option>
+                <option value="10000">10.000</option>
+                <option value="15000">15.000</option>
+                <option value="20000">20.000</option>
+              </select>
+            </div>
+          </div>
+          <div class="row g-3 align-items-end mt-1">
+            <div class="col-lg-8">
+              <label class="filter-label" for="stockSearch">Zoekterm</label>
+              <input id="stockSearch" class="form-control" type="text" placeholder="Zoek op merk, model, uitvoering of tags" data-filter-search>
+            </div>
+            <div class="col-md-6 col-lg-2">
+              <button class="btn btn-outline-premium w-100" type="button" data-filter-reset>Reset</button>
+            </div>
+            <div class="col-md-6 col-lg-2">
+              <button class="btn btn-premium stock-search-button w-100" type="button" data-filter-submit>
+                Zoeken
+                <span class="stock-search-count" data-filter-count-badge>0</span>
+              </button>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center mt-4">
+            <div class="filter-pills">
+              <span class="filter-pill">Dealer-stijl filters</span>
+              <span class="filter-pill">Mobiel, tablet en desktop</span>
+              <span class="filter-pill">Direct resultaat</span>
+            </div>
+            <div class="filter-meta" data-filter-count>0 resultaten</div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section-space-sm pt-0">
+    <div class="container">
       <div class="row g-4">
-        <div class="col-lg-4 col-md-6" data-reveal>
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="bmw 320d f31 automaat" data-brand="bmw" data-model="320d f31" data-status="available" data-transmission="automaat" data-price="10499" data-tags="bmw touring pano leer m-pakket stage 2 automaat beschikbaar">
           <a href="auto-1.html" class="car-card d-block h-100" data-tilt>
             <div class="car-media">
               <img src="images/auto1/1.jpg" alt="BMW 320D F31 Automaat">
@@ -78,7 +150,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal>
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="audi a6" data-brand="audi" data-model="a6" data-status="sold" data-transmission="automaat" data-price="" data-tags="audi a6 verkocht premium">
           <a href="auto-2.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -97,7 +169,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal>
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-3.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -116,7 +188,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal>
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-4.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -135,7 +207,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal>
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-5.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -154,7 +226,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal>
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-6.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -172,6 +244,10 @@
             </div>
           </a>
         </div>
+      </div>
+      <div class="filter-empty page-hero-panel mt-4" data-filter-empty>
+        <h3 class="h4 mb-2">Geen auto's gevonden</h3>
+        <p class="lead-soft mb-0">Pas de zoekterm of statusfilter aan om weer resultaten te zien.</p>
       </div>
     </div>
   </section>
@@ -202,5 +278,9 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
 
 

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll("[data-counter]");
   const tiltCards = document.querySelectorAll("[data-tilt]");
   const galleries = document.querySelectorAll(".car-display");
+  const filterForm = document.querySelector("[data-stock-filters]");
 
   const updateNavbar = () => {
     if (!navbar) return;
@@ -98,4 +99,94 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn?.addEventListener("click", () => setImage(currentIndex - 1));
     nextBtn?.addEventListener("click", () => setImage(currentIndex + 1));
   });
+
+  if (filterForm) {
+    const searchInput = filterForm.querySelector("[data-filter-search]");
+    const brandSelect = filterForm.querySelector("[data-filter-brand]");
+    const modelSelect = filterForm.querySelector("[data-filter-model]");
+    const statusSelect = filterForm.querySelector("[data-filter-status]");
+    const transmissionSelect = filterForm.querySelector("[data-filter-transmission]");
+    const priceMaxSelect = filterForm.querySelector("[data-filter-price-max]");
+    const resetButton = filterForm.querySelector("[data-filter-reset]");
+    const submitButton = filterForm.querySelector("[data-filter-submit]");
+    const countBadge = filterForm.querySelector("[data-filter-count-badge]");
+    const statusShortcuts = [...filterForm.querySelectorAll("[data-filter-status-shortcut]")];
+    const items = [...document.querySelectorAll("[data-filter-item]")];
+    const resultCount = document.querySelector("[data-filter-count]");
+    const emptyState = document.querySelector("[data-filter-empty]");
+
+    const applyFilters = () => {
+      const searchValue = (searchInput?.value || "").trim().toLowerCase();
+      const brandValue = brandSelect?.value || "all";
+      const modelValue = modelSelect?.value || "all";
+      const statusValue = statusSelect?.value || "all";
+      const transmissionValue = transmissionSelect?.value || "all";
+      const priceMaxValue = priceMaxSelect?.value || "all";
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const haystack = [
+          item.dataset.name || "",
+          item.dataset.tags || "",
+          item.dataset.status || "",
+        ].join(" ").toLowerCase();
+
+        const matchesSearch = !searchValue || haystack.includes(searchValue);
+        const matchesBrand = brandValue === "all" || (item.dataset.brand || "") === brandValue;
+        const matchesModel = modelValue === "all" || (item.dataset.model || "") === modelValue;
+        const matchesStatus = statusValue === "all" || (item.dataset.status || "") === statusValue;
+        const matchesTransmission = transmissionValue === "all" || (item.dataset.transmission || "") === transmissionValue;
+        const rawPrice = item.dataset.price || "";
+        const numericPrice = rawPrice ? Number(rawPrice) : null;
+        const matchesPrice = priceMaxValue === "all" || (numericPrice !== null && numericPrice <= Number(priceMaxValue));
+        const isVisible = matchesSearch && matchesBrand && matchesModel && matchesStatus && matchesTransmission && matchesPrice;
+
+        item.classList.toggle("is-hidden", !isVisible);
+        if (isVisible) {
+          visibleCount += 1;
+        }
+      });
+
+      if (resultCount) {
+        resultCount.textContent = `${visibleCount} resultaat${visibleCount === 1 ? "" : "en"}`;
+      }
+
+      if (countBadge) {
+        countBadge.textContent = String(visibleCount);
+      }
+
+      statusShortcuts.forEach((button) => {
+        button.classList.toggle("is-active", (button.dataset.filterStatusShortcut || "all") === statusValue);
+      });
+
+      emptyState?.classList.toggle("is-visible", visibleCount === 0);
+    };
+
+    searchInput?.addEventListener("input", applyFilters);
+    brandSelect?.addEventListener("change", applyFilters);
+    modelSelect?.addEventListener("change", applyFilters);
+    statusSelect?.addEventListener("change", applyFilters);
+    transmissionSelect?.addEventListener("change", applyFilters);
+    priceMaxSelect?.addEventListener("change", applyFilters);
+    submitButton?.addEventListener("click", applyFilters);
+    statusShortcuts.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (statusSelect) {
+          statusSelect.value = button.dataset.filterStatusShortcut || "all";
+        }
+        applyFilters();
+      });
+    });
+    resetButton?.addEventListener("click", () => {
+      if (searchInput) searchInput.value = "";
+      if (brandSelect) brandSelect.value = "all";
+      if (modelSelect) modelSelect.value = "all";
+      if (statusSelect) statusSelect.value = "all";
+      if (transmissionSelect) transmissionSelect.value = "all";
+      if (priceMaxSelect) priceMaxSelect.value = "all";
+      applyFilters();
+    });
+
+    applyFilters();
+  }
 });

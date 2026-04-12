@@ -16,10 +16,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
-      <img src="assets/images/logo.png" alt="SEM Automotive logo">
+      <img src="img/logo sem-automotive.png" alt="SEM Automotive logo">
       <span class="brand-text">
         <span class="brand-name">SEM AUTOMOTIVE</span>
-        <span class="brand-tag">Premium occasions</span>
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menu openen">
@@ -38,6 +37,93 @@
 </nav>
 
 <main class="page-shell">
+     <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-panel" data-reveal>
+      </div>
+    </div>
+  </section>
+      <section class="stock-filter-section">
+    <div class="container">
+      <div class="stock-search-shell" data-reveal data-stock-filters>
+        <div class="stock-search-tabs">
+          <button class="stock-search-tab is-active" type="button">Occasions</button>
+          <button class="stock-search-tab" type="button" data-filter-status-shortcut="available">Direct beschikbaar</button>
+          <button class="stock-search-tab" type="button" data-filter-status-shortcut="sold">Verkocht</button>
+        </div>
+        <div class="stock-search-body">
+          <div class="row g-3 align-items-end">
+            <div class="col-lg-3 col-md-6">
+              <label class="filter-label" for="stockBrand">Merk</label>
+              <select id="stockBrand" class="form-select" data-filter-brand>
+                <option value="all">Alle merken</option>
+                <option value="bmw">BMW</option>
+                <option value="audi">Audi</option>
+                <option value="volkswagen">Volkswagen</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <label class="filter-label" for="stockModel">Model</label>
+              <select id="stockModel" class="form-select" data-filter-model>
+                <option value="all">Alle modellen</option>
+                <option value="320d f31">320D F31</option>
+                <option value="a6">A6</option>
+                <option value="golf 2.0 gti">Golf 2.0 GTI</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockStatus">Status</label>
+              <select id="stockStatus" class="form-select" data-filter-status>
+                <option value="all">Alles</option>
+                <option value="available">Beschikbaar</option>
+                <option value="sold">Verkocht</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockTransmission">Transmissie</label>
+              <select id="stockTransmission" class="form-select" data-filter-transmission>
+                <option value="all">Alles</option>
+                <option value="automaat">Automaat</option>
+                <option value="handgeschakeld">Handgeschakeld</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockPriceMax">Max prijs</label>
+              <select id="stockPriceMax" class="form-select" data-filter-price-max>
+                <option value="all">Geen limiet</option>
+                <option value="10000">10.000</option>
+                <option value="15000">15.000</option>
+                <option value="20000">20.000</option>
+              </select>
+            </div>
+          </div>
+          <div class="row g-3 align-items-end mt-1">
+            <div class="col-lg-8">
+              <label class="filter-label" for="stockSearch">Zoekterm</label>
+              <input id="stockSearch" class="form-control" type="text" placeholder="Zoek op merk, model, uitvoering of tags" data-filter-search>
+            </div>
+            <div class="col-md-6 col-lg-2">
+              <button class="btn btn-outline-premium w-100" type="button" data-filter-reset>Reset</button>
+            </div>
+            <div class="col-md-6 col-lg-2">
+              <button class="btn btn-premium stock-search-button w-100" type="button" data-filter-submit>
+                Zoeken
+                <span class="stock-search-count" data-filter-count-badge>0</span>
+              </button>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center mt-4">
+            <div class="filter-pills">
+              <span class="filter-pill">Dealer-stijl filters</span>
+              <span class="filter-pill">Mobiel, tablet en desktop</span>
+              <span class="filter-pill">Direct resultaat</span>
+            </div>
+            <div class="filter-meta" data-filter-count>0 resultaten</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="hero">
     <div class="container">
       <div class="hero-card row g-0 align-items-center">
@@ -98,37 +184,6 @@
             <div class="icon-badge"><i class="fa-solid fa-handshake-angle"></i></div>
             <h3 class="h4">Persoonlijk contact</h3>
             <p class="lead-soft mb-0">Korte lijnen voor bezichtiging, inruil, aankoopadvies en performance-gerichte vragen.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-space-sm">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-3 col-md-6" data-reveal>
-          <div class="stat-card text-center">
-            <div class="display-6" data-counter="6">0</div>
-            <p class="lead-soft mb-0">Auto's zichtbaar in de online voorraad</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-reveal>
-          <div class="stat-card text-center">
-            <div class="display-6" data-counter="1">0</div>
-            <p class="lead-soft mb-0">Auto nu direct beschikbaar</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-reveal>
-          <div class="stat-card text-center">
-            <div class="display-6" data-counter="5">0</div>
-            <p class="lead-soft mb-0">Dienstgebieden rondom aankoop en upgrades</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-reveal>
-          <div class="stat-card text-center">
-            <div class="display-6" data-counter="100" data-suffix="%">0%</div>
-            <p class="lead-soft mb-0">Aandacht voor kwaliteit boven kwantiteit</p>
           </div>
         </div>
       </div>
@@ -239,5 +294,9 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
 
 

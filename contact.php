@@ -1,8 +1,5 @@
-
-
-<?php
+﻿<?php
 session_start();
-
 
 $recipientEmail = 'info@sem-automotive.nl';
 $siteEmail = 'no-reply@sem-automotive.nl';
@@ -131,10 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
-      <img src="assets/images/logo.png" alt="SEM Automotive logo">
+      <img src="img/logo sem-automotive.png" alt="SEM Automotive logo">
       <span class="brand-text">
         <span class="brand-name">SEM AUTOMOTIVE</span>
-        <span class="brand-tag">Premium occasions</span>
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menu openen">
@@ -229,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="footer-copy">
           <strong>SEM Automotive</strong><br>
           Dukdalf 16-8, 9202 BE Drachten<br>
-          0653299783 · info@sem-automotive.nl
+          0653299783 Â· info@sem-automotive.nl
         </div>
       </div>
       <div class="col-lg-4">
@@ -247,3 +243,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
