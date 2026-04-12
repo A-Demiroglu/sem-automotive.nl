@@ -157,6 +157,60 @@ img {
   padding: 7rem 0 5rem;
 }
 
+.home-hero-banner {
+  position: relative;
+  min-height: 980px;
+  display: flex;
+  align-items: flex-start;
+  background: #040404;
+}
+
+.home-hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("../../img/Auto on road automotiv backround.jpeg") center center / cover no-repeat;
+  opacity: 0.98;
+}
+
+.home-hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.08) 24%, rgba(4, 4, 4, 0.2) 48%, rgba(4, 4, 4, 0.88) 100%);
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 8.3rem 0 4rem;
+}
+
+.home-hero-copy {
+  max-width: 760px;
+  margin: 0 auto 23rem;
+  text-align: center;
+}
+
+.home-hero-copy h1 {
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: 0.96;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.home-hero-copy p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
 .hero-card,
 .content-panel,
 .glass-card,
@@ -389,8 +443,23 @@ img {
   transition: transform 0.45s ease;
 }
 
+.car-media-featured {
+  aspect-ratio: 16 / 9;
+  background: #050505;
+}
+
+.car-media-featured img {
+  object-fit: contain;
+  object-position: center center;
+  padding: 0.75rem;
+}
+
 .car-card:hover .car-media img {
   transform: scale(1.08);
+}
+
+.car-card:hover .car-media-featured img {
+  transform: scale(1.03);
 }
 
 .car-body {
@@ -833,8 +902,17 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 28px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.96), rgba(4, 4, 4, 0.98));
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.stock-search-shell-home {
+  max-width: 1180px;
+  margin: 0 auto -7rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.05));
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
 }
 
 .stock-search-tabs {
@@ -869,6 +947,65 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  min-height: 3rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.stock-search-form {
+  display: contents;
+}
+
+.stock-search-shell-home .stock-search-tabs {
+  gap: 1rem;
+  padding: 1.15rem 1.4rem 0;
+}
+
+.stock-search-shell-home .stock-search-tab {
+  color: #ffffff;
+  font-size: 1.05rem;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+
+.stock-search-shell-home .stock-search-tab.is-active {
+  color: #ff5b5b;
+  border-bottom-color: #ff5b5b;
+}
+
+.stock-search-shell-home .stock-search-body {
+  padding: 1.2rem 1.4rem 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stock-search-shell-home .filter-label {
+  color: #ffffff;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.stock-search-shell-home .form-control,
+.stock-search-shell-home .form-select {
+  background: rgba(10, 10, 10, 0.26);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.stock-search-shell-home .form-control:focus,
+.stock-search-shell-home .form-select:focus {
+  background: rgba(10, 10, 10, 0.42);
+  border-color: rgba(255, 91, 91, 0.55);
+  box-shadow: 0 0 0 0.25rem rgba(179, 0, 0, 0.16);
+  color: #ffffff;
+}
+
+.stock-search-shell-home .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.home-filter-note {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
 }
 
 .stock-search-count {
@@ -899,6 +1036,20 @@ img {
   font-size: 0.96rem;
 }
 
+.stock-search-actions-row {
+  padding-top: 0.25rem;
+}
+
+.stock-search-actions-row .btn {
+  min-height: 3rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.stock-search-meta-row {
+  min-height: 1.5rem;
+}
+
 .text-secondary {
   color: #ffffff !important;
 }
@@ -918,6 +1069,28 @@ img {
 }
 
 @media (max-width: 767.98px) {
+  .home-hero-banner {
+    min-height: 980px;
+  }
+
+  .home-hero-banner::before {
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .home-hero-inner {
+    padding: 7.4rem 0 2rem;
+  }
+
+  .home-hero-copy {
+    margin-bottom: 17rem;
+  }
+
+  .stock-search-shell-home {
+    max-width: 100%;
+    margin-bottom: -4rem;
+  }
+
   .stock-filter-section {
     margin-top: -1rem;
   }
@@ -936,6 +1109,16 @@ img {
 
   .stock-search-body {
     padding: 1rem;
+  }
+
+  .stock-search-actions-row .btn {
+    min-height: 2.9rem;
+  }
+
+  .stock-search-shell-home .stock-search-tabs,
+  .stock-search-shell-home .stock-search-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .filter-panel {

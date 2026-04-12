@@ -73,6 +73,14 @@
               </select>
             </div>
             <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockFuel">Brandstof</label>
+              <select id="stockFuel" class="form-select" data-filter-fuel>
+                <option value="all">Alles</option>
+                <option value="diesel">Diesel</option>
+                <option value="benzine">Benzine</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
               <label class="filter-label" for="stockStatus">Status</label>
               <select id="stockStatus" class="form-select" data-filter-status>
                 <option value="all">Alles</option>
@@ -89,6 +97,52 @@
               </select>
             </div>
             <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockYearMin">Bouwjaar min</label>
+              <select id="stockYearMin" class="form-select" data-filter-year-min>
+                <option value="all">Min</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+              </select>
+            </div>
+          </div>
+          <div class="row g-3 align-items-end mt-1">
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockYearMax">Bouwjaar max</label>
+              <select id="stockYearMax" class="form-select" data-filter-year-max>
+                <option value="all">Max</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockKmMin">Km-stand min</label>
+              <select id="stockKmMin" class="form-select" data-filter-km-min>
+                <option value="all">Min</option>
+                <option value="0">0</option>
+                <option value="50000">50.000</option>
+                <option value="100000">100.000</option>
+                <option value="200000">200.000</option>
+                <option value="300000">300.000</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <label class="filter-label" for="stockKmMax">Km-stand max</label>
+              <select id="stockKmMax" class="form-select" data-filter-km-max>
+                <option value="all">Max</option>
+                <option value="50000">50.000</option>
+                <option value="100000">100.000</option>
+                <option value="200000">200.000</option>
+                <option value="300000">300.000</option>
+                <option value="400000">400.000</option>
+              </select>
+            </div>
+            <div class="col-lg-2 col-md-4">
               <label class="filter-label" for="stockPriceMax">Max prijs</label>
               <select id="stockPriceMax" class="form-select" data-filter-price-max>
                 <option value="all">Geen limiet</option>
@@ -97,28 +151,23 @@
                 <option value="20000">20.000</option>
               </select>
             </div>
-          </div>
-          <div class="row g-3 align-items-end mt-1">
-            <div class="col-lg-8">
+            <div class="col-lg-4 col-md-8">
               <label class="filter-label" for="stockSearch">Zoekterm</label>
               <input id="stockSearch" class="form-control" type="text" placeholder="Zoek op merk, model, uitvoering of tags" data-filter-search>
             </div>
-            <div class="col-md-6 col-lg-2">
+          </div>
+          <div class="row g-3 align-items-center mt-4 stock-search-actions-row">
+            <div class="col-xl-2 col-lg-2 col-md-4">
               <button class="btn btn-outline-premium w-100" type="button" data-filter-reset>Reset</button>
             </div>
-            <div class="col-md-6 col-lg-2">
+            <div class="col-xl-3 col-lg-4 col-md-8">
               <button class="btn btn-premium stock-search-button w-100" type="button" data-filter-submit>
-                Zoeken
+                <span>Zoeken</span>
                 <span class="stock-search-count" data-filter-count-badge>0</span>
               </button>
             </div>
           </div>
-          <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center mt-4">
-            <div class="filter-pills">
-              <span class="filter-pill">Dealer-stijl filters</span>
-              <span class="filter-pill">Mobiel, tablet en desktop</span>
-              <span class="filter-pill">Direct resultaat</span>
-            </div>
+          <div class="d-flex flex-wrap justify-content-end gap-3 align-items-center mt-4 stock-search-meta-row">
             <div class="filter-meta" data-filter-count>0 resultaten</div>
           </div>
         </div>
@@ -129,7 +178,7 @@
   <section class="section-space-sm pt-0">
     <div class="container">
       <div class="row g-4">
-        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="bmw 320d f31 automaat" data-brand="bmw" data-model="320d f31" data-status="available" data-transmission="automaat" data-price="10499" data-tags="bmw touring pano leer m-pakket stage 2 automaat beschikbaar">
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="bmw 320d f31 automaat" data-brand="bmw" data-model="320d f31" data-fuel="diesel" data-year="2013" data-km="312500" data-status="available" data-transmission="automaat" data-price="10499" data-tags="bmw touring pano leer m-pakket stage 2 automaat beschikbaar diesel 2013 312500">
           <a href="auto-1.html" class="car-card d-block h-100" data-tilt>
             <div class="car-media">
               <img src="images/auto1/1.jpg" alt="BMW 320D F31 Automaat">
@@ -150,7 +199,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="audi a6" data-brand="audi" data-model="a6" data-status="sold" data-transmission="automaat" data-price="" data-tags="audi a6 verkocht premium">
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="audi a6" data-brand="audi" data-model="a6" data-fuel="" data-year="" data-km="" data-status="sold" data-transmission="automaat" data-price="" data-tags="audi a6 verkocht premium">
           <a href="auto-2.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -169,7 +218,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-fuel="" data-year="" data-km="" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-3.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -188,7 +237,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-fuel="" data-year="" data-km="" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-4.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -207,7 +256,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-fuel="" data-year="" data-km="" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-5.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -226,7 +275,7 @@
           </a>
         </div>
 
-        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
+        <div class="col-lg-4 col-md-6" data-reveal data-filter-item data-name="volkswagen golf 2.0 gti" data-brand="volkswagen" data-model="golf 2.0 gti" data-fuel="" data-year="" data-km="" data-status="sold" data-transmission="handgeschakeld" data-price="" data-tags="volkswagen golf gti verkocht sportief premium">
           <a href="auto-6.html" class="car-card d-block h-100" data-tilt>
             <div class="placeholder-media">
               <div class="placeholder-inner">
@@ -278,9 +327,6 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-
 
 
 

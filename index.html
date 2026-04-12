@@ -37,120 +37,127 @@
 </nav>
 
 <main class="page-shell">
-     <section class="page-hero">
-    <div class="container">
-      <div class="page-hero-panel" data-reveal>
-      </div>
-    </div>
-  </section>
-      <section class="stock-filter-section">
-    <div class="container">
-      <div class="stock-search-shell" data-reveal data-stock-filters>
-        <div class="stock-search-tabs">
-          <button class="stock-search-tab is-active" type="button">Occasions</button>
-          <button class="stock-search-tab" type="button" data-filter-status-shortcut="available">Direct beschikbaar</button>
-          <button class="stock-search-tab" type="button" data-filter-status-shortcut="sold">Verkocht</button>
+  <section class="home-hero-banner">
+    <div class="home-hero-inner">
+      <div class="container">
+        <div class="home-hero-copy" data-reveal>
+          <h1>Vind uw volgende auto in stijl.</h1>
         </div>
-        <div class="stock-search-body">
-          <div class="row g-3 align-items-end">
-            <div class="col-lg-3 col-md-6">
-              <label class="filter-label" for="stockBrand">Merk</label>
-              <select id="stockBrand" class="form-select" data-filter-brand>
-                <option value="all">Alle merken</option>
-                <option value="bmw">BMW</option>
-                <option value="audi">Audi</option>
-                <option value="volkswagen">Volkswagen</option>
-              </select>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <label class="filter-label" for="stockModel">Model</label>
-              <select id="stockModel" class="form-select" data-filter-model>
-                <option value="all">Alle modellen</option>
-                <option value="320d f31">320D F31</option>
-                <option value="a6">A6</option>
-                <option value="golf 2.0 gti">Golf 2.0 GTI</option>
-              </select>
-            </div>
-            <div class="col-lg-2 col-md-4">
-              <label class="filter-label" for="stockStatus">Status</label>
-              <select id="stockStatus" class="form-select" data-filter-status>
-                <option value="all">Alles</option>
-                <option value="available">Beschikbaar</option>
-                <option value="sold">Verkocht</option>
-              </select>
-            </div>
-            <div class="col-lg-2 col-md-4">
-              <label class="filter-label" for="stockTransmission">Transmissie</label>
-              <select id="stockTransmission" class="form-select" data-filter-transmission>
-                <option value="all">Alles</option>
-                <option value="automaat">Automaat</option>
-                <option value="handgeschakeld">Handgeschakeld</option>
-              </select>
-            </div>
-            <div class="col-lg-2 col-md-4">
-              <label class="filter-label" for="stockPriceMax">Max prijs</label>
-              <select id="stockPriceMax" class="form-select" data-filter-price-max>
-                <option value="all">Geen limiet</option>
-                <option value="10000">10.000</option>
-                <option value="15000">15.000</option>
-                <option value="20000">20.000</option>
-              </select>
-            </div>
+        <div class="stock-search-shell stock-search-shell-home" data-reveal>
+          <div class="stock-search-tabs">
+            <button class="stock-search-tab is-active" type="button" data-home-status="all">Occasions</button>
+            <button class="stock-search-tab" type="button" data-home-status="available">Direct beschikbaar</button>
+            <button class="stock-search-tab" type="button" data-home-status="sold">Verkocht</button>
           </div>
-          <div class="row g-3 align-items-end mt-1">
-            <div class="col-lg-8">
-              <label class="filter-label" for="stockSearch">Zoekterm</label>
-              <input id="stockSearch" class="form-control" type="text" placeholder="Zoek op merk, model, uitvoering of tags" data-filter-search>
-            </div>
-            <div class="col-md-6 col-lg-2">
-              <button class="btn btn-outline-premium w-100" type="button" data-filter-reset>Reset</button>
-            </div>
-            <div class="col-md-6 col-lg-2">
-              <button class="btn btn-premium stock-search-button w-100" type="button" data-filter-submit>
-                Zoeken
-                <span class="stock-search-count" data-filter-count-badge>0</span>
-              </button>
-            </div>
-          </div>
-          <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center mt-4">
-            <div class="filter-pills">
-              <span class="filter-pill">Dealer-stijl filters</span>
-              <span class="filter-pill">Mobiel, tablet en desktop</span>
-              <span class="filter-pill">Direct resultaat</span>
-            </div>
-            <div class="filter-meta" data-filter-count>0 resultaten</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="hero">
-    <div class="container">
-      <div class="hero-card row g-0 align-items-center">
-        <div class="col-lg-6">
-          <div class="hero-copy">
-            <span class="eyebrow mb-3"><i class="fa-solid fa-gauge-high"></i> Performance met klasse</span>
-            <h1 class="hero-title">Sportieve occasions met uitstraling en vertrouwen.</h1>
-            <p class="hero-subtitle">SEM Automotive selecteert auto's met karakter. Professioneel gepresenteerd, technisch serieus bekeken en persoonlijk begeleid van eerste contact tot aflevering.</p>
-            <div class="hero-actions">
-              <a href="voorraad.html" class="btn btn-premium">Bekijk de voorraad</a>
-              <a href="contact.php" class="btn btn-outline-premium">Plan een bezichtiging</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="hero-visual">
-            <div class="hero-image-wrap">
-              <img src="images/auto1/1.jpg" alt="Uitgelichte auto van SEM Automotive">
-            </div>
-            <div class="floating-panel" data-reveal>
-              <span class="metric-value" data-counter="24" data-suffix="/7">0/7</span>
-              <span class="metric-label">Direct bereikbaar voor advies, bezichtiging en inruil</span>
-            </div>
-            <div class="floating-badge" data-reveal>
-              <span class="metric-value" data-counter="100" data-suffix="%">0%</span>
-              <span class="metric-label">Focus op presentatie, transparantie en rijbeleving</span>
-            </div>
+          <div class="stock-search-body">
+            <form class="stock-search-form" method="get" action="voorraad.html">
+              <div class="row g-3 align-items-end">
+                <div class="col-lg-3 col-md-6">
+                  <label class="filter-label" for="homeBrand">Merk</label>
+                  <select id="homeBrand" class="form-select" name="brand">
+                    <option value="all">Alle merken</option>
+                    <option value="bmw">BMW</option>
+                    <option value="audi">Audi</option>
+                    <option value="volkswagen">Volkswagen</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <label class="filter-label" for="homeModel">Model</label>
+                  <select id="homeModel" class="form-select" name="model">
+                    <option value="all">Alle modellen</option>
+                    <option value="320d f31">320D F31</option>
+                    <option value="a6">A6</option>
+                    <option value="golf 2.0 gti">Golf 2.0 GTI</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homeFuel">Brandstof</label>
+                  <select id="homeFuel" class="form-select" name="fuel">
+                    <option value="all">Alles</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="benzine">Benzine</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homeStatus">Status</label>
+                  <select id="homeStatus" class="form-select" name="status">
+                    <option value="all">Alles</option>
+                    <option value="available">Beschikbaar</option>
+                    <option value="sold">Verkocht</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homeTransmission">Transmissie</label>
+                  <select id="homeTransmission" class="form-select" name="transmission">
+                    <option value="all">Alles</option>
+                    <option value="automaat">Automaat</option>
+                    <option value="handgeschakeld">Handgeschakeld</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row g-3 align-items-end mt-1">
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homeYearMin">Bouwjaar min</label>
+                  <select id="homeYearMin" class="form-select" name="year_min">
+                    <option value="all">Min</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homeYearMax">Bouwjaar max</label>
+                  <select id="homeYearMax" class="form-select" name="year_max">
+                    <option value="all">Max</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homeKmMin">Km-stand min</label>
+                  <select id="homeKmMin" class="form-select" name="km_min">
+                    <option value="all">Min</option>
+                    <option value="0">0</option>
+                    <option value="50000">50.000</option>
+                    <option value="100000">100.000</option>
+                    <option value="200000">200.000</option>
+                    <option value="300000">300.000</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homeKmMax">Km-stand max</label>
+                  <select id="homeKmMax" class="form-select" name="km_max">
+                    <option value="all">Max</option>
+                    <option value="50000">50.000</option>
+                    <option value="100000">100.000</option>
+                    <option value="200000">200.000</option>
+                    <option value="300000">300.000</option>
+                    <option value="400000">400.000</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                  <label class="filter-label" for="homePriceMax">Max prijs</label>
+                  <select id="homePriceMax" class="form-select" name="price_max">
+                    <option value="all">Geen limiet</option>
+                    <option value="10000">10.000</option>
+                    <option value="15000">15.000</option>
+                    <option value="20000">20.000</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 col-md-8">
+                  <label class="filter-label" for="homeSearch">Zoekterm</label>
+                  <input id="homeSearch" class="form-control" type="text" name="q" placeholder="Zoek op merk, model, uitvoering of tags">
+                </div>
+              </div>
+                  <button class="btn btn-premium stock-search-button w-100" type="submit">Zoeken</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -162,7 +169,6 @@
       <div class="section-heading" data-reveal>
         <span class="eyebrow mb-3"><i class="fa-solid fa-star"></i> Waarom SEM Automotive</span>
         <h2>Een stijlvolle presentatie voor auto’s die net even meer karakter hebben.</h2>
-        <p class="lead-soft">Geen massale voorraad, maar een verzorgde selectie van sportieve en premium occasions met een professionele look, eerlijke informatie en persoonlijke benadering.</p>
       </div>
       <div class="row g-4">
         <div class="col-md-4" data-reveal>
@@ -197,7 +203,6 @@
           <div class="content-panel p-4 p-lg-5 h-100">
             <span class="eyebrow mb-3"><i class="fa-solid fa-fire"></i> Uitgelicht</span>
             <h2 class="mb-3">BMW 320D F31 Automaat</h2>
-            <p class="lead-soft">De BMW is volledig uitgewerkt met een rijkere detailpagina, interactieve galerij en heldere specificaties. Zo komt de auto veel professioneler over voor bezoekers die serieus zoeken.</p>
             <div class="filter-pills mt-4 mb-4">
               <span class="filter-pill">Automaat</span>
               <span class="filter-pill">Panoramadak</span>
@@ -209,8 +214,8 @@
         </div>
         <div class="col-lg-5" data-reveal>
           <a href="auto-1.html" class="car-card d-block h-100" data-tilt>
-            <div class="car-media">
-              <img src="images/auto1/2.jpg" alt="BMW 320D F31 Automaat">
+            <div class="car-media car-media-featured">
+              <img src="images/auto1/1.jpg" alt="BMW 320D F31 Automaat">
             </div>
             <div class="car-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -294,9 +299,6 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-
 
 
 
