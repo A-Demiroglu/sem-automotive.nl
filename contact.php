@@ -2,7 +2,7 @@
 session_start();
 
 $recipientEmail = 'info@sem-automotive.nl';
-$siteEmail = 'no-reply@sem-automotive.nl';
+$siteEmail = 'info@sem-automotive.nl';
 
 $flash = $_SESSION['contact_flash'] ?? null;
 $old = $_SESSION['contact_old'] ?? [
@@ -89,13 +89,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'Content-Type: text/plain; charset=UTF-8',
         'From: SEM Automotive <' . $siteEmail . '>',
         'Reply-To: ' . $safeName . ' <' . $safeEmail . '>',
+        'X-Mailer: PHP/' . phpversion(),
     ];
 
-    $sent = mail($recipientEmail, $mailSubject, $mailBody, implode("\r\n", $headers));
+    $mailHeaders = implode("\r\n", $headers);
+    $mailParams = PHP_OS_FAMILY === 'Windows' ? '' : '-f' . $siteEmail;
+    $sent = $mailParams !== ''
+        ? @mail($recipientEmail, $mailSubject, $mailBody, $mailHeaders, $mailParams)
+        : @mail($recipientEmail, $mailSubject, $mailBody, $mailHeaders);
 
     $_SESSION['contact_flash'] = $sent
         ? ['type' => 'success', 'message' => 'Bedankt. Uw bericht is succesvol verstuurd.']
-        : ['type' => 'danger', 'message' => 'Het bericht kon niet worden verstuurd. Controleer de mailinstellingen van de server of probeer het later opnieuw.'];
+        : [
+            'type' => 'danger',
+            'message' => 'Het bericht kon niet automatisch worden verstuurd, omdat de servermail niet goed is ingesteld. Bel, app of open uw e-mailprogramma via de knop hieronder.',
+            'mailto' => 'mailto:' . $recipientEmail . '?subject=' . rawurlencode($safeSubject) . '&body=' . rawurlencode($mailBody),
+        ];
 
     if ($sent) {
         $_SESSION['contact_old'] = [
@@ -154,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="page-hero-panel" data-reveal>
         <span class="eyebrow mb-3"><i class="fa-solid fa-envelope-open-text"></i> Contact</span>
         <h1>Neem direct contact op voor bezichtiging, voorraad of advies.</h1>
-        <p class="lead-soft mb-0">Het formulier hieronder verwerkt inzendingen nu server-side en probeert ze direct naar het e-mailadres van SEM Automotive te sturen.</p>
+        <p class="lead-soft mb-0">Vul het formulier in of neem direct contact op via telefoon, WhatsApp of e-mail.</p>
       </div>
     </div>
   </section>
@@ -164,6 +173,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php if ($flash): ?>
       <div class="alert alert-<?= htmlspecialchars($flash['type'], ENT_QUOTES, 'UTF-8') ?> mb-4" role="alert">
         <?= htmlspecialchars($flash['message'], ENT_QUOTES, 'UTF-8') ?>
+        <?php if (!empty($flash['mailto'])): ?>
+        <div class="mt-3">
+          <a class="btn btn-outline-premium" href="<?= htmlspecialchars($flash['mailto'], ENT_QUOTES, 'UTF-8') ?>">Open e-mailprogramma</a>
+        </div>
+        <?php endif; ?>
       </div>
       <?php endif; ?>
       <div class="row g-4 align-items-stretch">
@@ -171,8 +185,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="contact-card h-100">
             <span class="eyebrow mb-3"><i class="fa-solid fa-address-book"></i> Gegevens</span>
             <ul class="contact-list mt-3">
-              <li><i class="fa-solid fa-location-dot"></i><span><strong>Adres</strong><br>Dukdalf 16-8, 9202 BE Drachten</span></li>
-              <li><i class="fa-solid fa-phone"></i><span><strong>Telefoon</strong><br><a href="tel:0653299783">0653299783</a></span></li>
+              <li><i class="fa-solid fa-location-dot"></i><span><strong>Adres</strong><br>Dukdalf 16-8, 9206BE Drachten</span></li>
+              <li><i class="fa-solid fa-phone"></i><span><strong>Telefoon</strong><br><a href="tel:0638075625">0638075625</a></span></li>
               <li><i class="fa-solid fa-envelope"></i><span><strong>E-mail</strong><br><a href="mailto:info@sem-automotive.nl">info@sem-automotive.nl</a></span></li>
               <li><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp</strong><br><a href="https://wa.me/31638075625" target="_blank" rel="noopener">Start direct een gesprek</a></span></li>
             </ul>
@@ -224,8 +238,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="col-lg-8">
         <div class="footer-copy">
           <strong>SEM Automotive</strong><br>
-          Dukdalf 16-8, 9202 BE Drachten<br>
-          0653299783 Â· info@sem-automotive.nl
+          Dukdalf 16-8, 9206BE Drachten<br>
+          0638075625 &middot; info@sem-automotive.nl
         </div>
       </div>
       <div class="col-lg-4">
@@ -243,5 +257,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-

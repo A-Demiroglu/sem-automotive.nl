@@ -7,13 +7,181 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterForm = document.querySelector("[data-stock-filters]");
   const homeStatusSelect = document.getElementById("homeStatus");
   const homeStatusButtons = [...document.querySelectorAll("[data-home-status]")];
+  const galleryOrders = {
+    "auto-7.html": [
+      "WhatsApp Image 2026-04-28 at 17.42.47.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.46.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.45 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.40.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.43.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.40 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (8).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (4).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.42.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.38.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (2).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (3).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (6).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (7).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.44.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.45.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.39 (5).jpeg",
+    ],
+    "auto-8.html": [
+      "WhatsApp Image 2026-04-28 at 17.42.53.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.54.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.49.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.52.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (2).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.51.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (3).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.50.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (5).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (6).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (7).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (8).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (9).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.55 (4).jpeg",
+    ],
+    "auto-9.html": [
+      "WhatsApp Image 2026-04-28 at 17.42.56 (2).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (9).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.57 (4).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (3).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (5).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (6).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (7).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.57.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.57 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.57 (2).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.57 (5).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (8).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.57 (3).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.42.56 (4).jpeg",
+    ],
+    "auto-10.html": [
+      "WhatsApp Image 2026-04-28 at 17.43.08.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.10 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.11.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.09.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.11 (3).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.09 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.11 (4).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.08 (2).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.10 (2).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.10 (3).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.11 (2).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.10 (4).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.10.jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.11 (1).jpeg",
+      "WhatsApp Image 2026-04-28 at 17.43.08 (1).jpeg",
+    ],
+    "auto-11.html": [
+      "WhatsApp Image 2026-05-08 at 19.22.05.jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07 (4).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07 (5).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07.jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (2).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.05 (1).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (9).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (5).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (7).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07 (6).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (13).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (10).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (14).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (12).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (8).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.05 (2).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (6).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (11).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (1).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (4).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06.jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.05 (3).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (15).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.06 (3).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07 (1).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07 (2).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07 (3).jpeg",
+      "WhatsApp Image 2026-05-08 at 19.22.07 (7).jpeg",
+    ],
+    "auto-12.html": [
+      "WhatsApp Image 2026-05-07 at 19.31.44.jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (6).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43.jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (4).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (5).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (8).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (7).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (4).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (5).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (9).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (1).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42.jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (2).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (3).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (8).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (7).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (2).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (6).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.43 (1).jpeg",
+      "WhatsApp Image 2026-05-07 at 19.31.42 (3).jpeg",
+    ],
+  };
 
   const updateNavbar = () => {
     if (!navbar) return;
     navbar.classList.toggle("is-scrolled", window.scrollY > 18);
   };
 
+  const setupStockGroups = () => {
+    const stockList = document.querySelector("[data-stock-list]");
+    if (!stockList || stockList.dataset.stockGrouped === "true") return;
+
+    const items = [...stockList.querySelectorAll("[data-filter-item]")];
+    if (!items.length) return;
+
+    const createGroup = (status, eyebrow, title) => {
+      const group = document.createElement("div");
+      group.className = "stock-status-group";
+      group.dataset.filterGroup = status;
+      group.innerHTML = `
+        <div class="section-heading stock-group-heading">
+          <span class="eyebrow mb-3"><i class="fa-solid fa-car"></i> ${eyebrow}</span>
+          <h2>${title}</h2>
+        </div>
+        <div class="row g-4" data-filter-group-row></div>
+      `;
+
+      return {
+        group,
+        row: group.querySelector("[data-filter-group-row]"),
+      };
+    };
+
+    const availableGroup = createGroup("available", "Direct beschikbaar", "Beschikbare auto's");
+    const soldGroup = createGroup("sold", "Archief", "Verkochte auto's");
+
+    items.forEach((item) => {
+      const targetGroup = item.dataset.status === "sold" ? soldGroup : availableGroup;
+      targetGroup.row.appendChild(item);
+    });
+
+    stockList.replaceWith(availableGroup.group, soldGroup.group);
+    availableGroup.group.classList.toggle("is-hidden", !availableGroup.row.children.length);
+    soldGroup.group.classList.toggle("is-hidden", !soldGroup.row.children.length);
+  };
+
   updateNavbar();
+  setupStockGroups();
   window.addEventListener("scroll", updateNavbar, { passive: true });
 
   if (revealItems.length) {
@@ -76,11 +244,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   galleries.forEach((gallery) => {
     const mainImage = gallery.querySelector(".main img");
-    const thumbs = [...gallery.querySelectorAll(".thumb")];
+    let thumbs = [...gallery.querySelectorAll(".thumb")];
     const prevBtn = gallery.querySelector(".navbtn.prev");
     const nextBtn = gallery.querySelector(".navbtn.next");
 
     if (!mainImage || !thumbs.length) return;
+
+    const pageName = window.location.pathname.split("/").pop();
+    const preferredOrder = galleryOrders[pageName];
+    const thumbShell = gallery.querySelector(".thumbs");
+
+    if (preferredOrder && thumbShell) {
+      const orderIndex = new Map(preferredOrder.map((fileName, index) => [fileName, index]));
+      thumbs.sort((a, b) => {
+        const aFile = (a.dataset.image || "").split("/").pop();
+        const bFile = (b.dataset.image || "").split("/").pop();
+        return (orderIndex.get(aFile) ?? 999) - (orderIndex.get(bFile) ?? 999);
+      });
+      thumbs.forEach((thumb, index) => {
+        thumb.classList.toggle("active", index === 0);
+        thumbShell.appendChild(thumb);
+      });
+      const firstImage = thumbs[0].dataset.image || thumbs[0].querySelector("img")?.getAttribute("src");
+      if (firstImage) {
+        mainImage.src = firstImage;
+        mainImage.alt = thumbs[0].dataset.alt || mainImage.alt;
+      }
+    }
 
     let currentIndex = Math.max(thumbs.findIndex((thumb) => thumb.classList.contains("active")), 0);
 
@@ -138,6 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const countBadge = filterForm.querySelector("[data-filter-count-badge]");
     const statusShortcuts = [...filterForm.querySelectorAll("[data-filter-status-shortcut]")];
     const items = [...document.querySelectorAll("[data-filter-item]")];
+    const groups = [...document.querySelectorAll("[data-filter-group]")];
     const resultCount = document.querySelector("[data-filter-count]");
     const emptyState = document.querySelector("[data-filter-empty]");
     const params = new URLSearchParams(window.location.search);
@@ -198,6 +389,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (isVisible) {
           visibleCount += 1;
         }
+      });
+
+      groups.forEach((group) => {
+        const visibleGroupItems = [...group.querySelectorAll("[data-filter-item]")].filter((item) => !item.classList.contains("is-hidden"));
+        group.classList.toggle("is-hidden", visibleGroupItems.length === 0);
       });
 
       if (resultCount) {

@@ -840,18 +840,35 @@ img {
 
 .form-control,
 .form-select {
-  background-color: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.1);
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--text);
   border-radius: 16px;
   padding: 0.95rem 1rem;
+  color-scheme: dark;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-select option,
+.form-select optgroup {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.form-select option:checked,
+.form-select option:hover {
+  background-color: #7f1d1d;
+  color: #ffffff;
 }
 
 .form-control:focus,
 .form-select:focus {
-  background-color: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 59, 59, 0.55);
-  box-shadow: 0 0 0 0.25rem rgba(179, 0, 0, 0.15);
+  background-color: #141414;
+  border-color: rgba(255, 59, 59, 0.78);
+  box-shadow: 0 0 0 0.18rem rgba(255, 59, 59, 0.18);
   color: var(--text);
 }
 
@@ -899,11 +916,11 @@ img {
 }
 
 .stock-search-shell {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 28px;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(8, 8, 8, 0.96), rgba(4, 4, 4, 0.98));
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  overflow: visible;
+  background: linear-gradient(180deg, rgba(12, 12, 12, 0.98), rgba(5, 5, 5, 0.99));
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.52);
 }
 
 .stock-search-shell-home {
@@ -918,28 +935,33 @@ img {
 .stock-search-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 1.25rem 1.25rem 0;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0;
+  border-radius: 22px 22px 0 0;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .stock-search-tab {
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: transparent;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.03);
   color: #ffffff;
   font-weight: 800;
   font-size: 1rem;
-  padding: 0.7rem 0.9rem 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px 14px 0 0;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .stock-search-tab.is-active {
-  color: #ff4b4b;
-  border-bottom-color: #ff4b4b;
+  color: #ffffff;
+  background: rgba(255, 59, 59, 0.18);
+  border-color: rgba(255, 59, 59, 0.38);
+  border-bottom-color: transparent;
 }
 
 .stock-search-body {
-  padding: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.4rem 1.55rem 1.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stock-search-button {
@@ -984,16 +1006,16 @@ img {
 
 .stock-search-shell-home .form-control,
 .stock-search-shell-home .form-select {
-  background: rgba(10, 10, 10, 0.26);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(10, 10, 10, 0.82);
+  border-color: rgba(255, 255, 255, 0.18);
   color: #ffffff;
 }
 
 .stock-search-shell-home .form-control:focus,
 .stock-search-shell-home .form-select:focus {
-  background: rgba(10, 10, 10, 0.42);
+  background: rgba(12, 12, 12, 0.96);
   border-color: rgba(255, 91, 91, 0.55);
-  box-shadow: 0 0 0 0.25rem rgba(179, 0, 0, 0.16);
+  box-shadow: 0 0 0 0.18rem rgba(179, 0, 0, 0.18);
   color: #ffffff;
 }
 
@@ -1024,11 +1046,12 @@ img {
 
 .filter-label {
   display: block;
-  margin-bottom: 0.45rem;
-  color: #ffffff;
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  margin-bottom: 0.55rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .filter-meta {
