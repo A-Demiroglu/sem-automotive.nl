@@ -327,6 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitButton = filterForm.querySelector("[data-filter-submit]");
     const countBadge = filterForm.querySelector("[data-filter-count-badge]");
     const statusShortcuts = [...filterForm.querySelectorAll("[data-filter-status-shortcut]")];
+    const allStatusTabs = [...filterForm.querySelectorAll(".stock-search-tab")];
     const items = [...document.querySelectorAll("[data-filter-item]")];
     const groups = [...document.querySelectorAll("[data-filter-group]")];
     const resultCount = document.querySelector("[data-filter-count]");
@@ -406,6 +407,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       statusShortcuts.forEach((button) => {
         button.classList.toggle("is-active", (button.dataset.filterStatusShortcut || "all") === statusValue);
+      });
+      allStatusTabs.forEach((button) => {
+        const shortcut = button.dataset.filterStatusShortcut;
+        if (shortcut) return;
+        button.classList.toggle("is-active", statusValue === "all");
       });
 
       emptyState?.classList.toggle("is-visible", visibleCount === 0);
