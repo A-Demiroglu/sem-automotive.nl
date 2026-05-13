@@ -7,6 +7,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterForm = document.querySelector("[data-stock-filters]");
   const homeStatusSelect = document.getElementById("homeStatus");
   const homeStatusButtons = [...document.querySelectorAll("[data-home-status]")];
+  const modelOptionsByBrand = {
+    bmw: [{ value: "3 serie", label: "3 Serie" }],
+    audi: [{ value: "a6", label: "A6" }],
+    peugeot: [{ value: "208", label: "208" }],
+    volkswagen: [
+      { value: "golf", label: "Golf" },
+      { value: "polo", label: "Polo" },
+    ],
+    volvo: [{ value: "v40", label: "V40" }],
+  };
+  const legacyModelValues = {
+    "320d f31": "3 serie",
+    "e91 330d n57 x-drive": "3 serie",
+    "208 vti active": "208",
+    "golf 6 edition 35": "golf",
+    "golf 2.0 gti": "golf",
+    "polo 1.0 tsi": "polo",
+    "v40 d2 r-design": "v40",
+  };
+  const normalizeModelValue = (value) => legacyModelValues[value] || value || "all";
+  const getModelOptions = (brandValue = "all") => {
+    if (brandValue !== "all") return modelOptionsByBrand[brandValue] || [];
+
+    return Object.values(modelOptionsByBrand)
+      .flat()
+      .filter((option, index, allOptions) => allOptions.findIndex((item) => item.value === option.value) === index)
+      .sort((a, b) => a.label.localeCompare(b.label, "nl", { numeric: true }));
+  };
+  const updateModelSelect = (modelSelect, brandValue = "all", preferredValue = modelSelect?.value || "all") => {
+    if (!modelSelect) return;
+
+    const normalizedPreferredValue = normalizeModelValue(preferredValue);
+    const options = getModelOptions(brandValue);
+    modelSelect.replaceChildren(new Option("Alle modellen", "all"));
+    options.forEach((option) => modelSelect.add(new Option(option.label, option.value)));
+    modelSelect.value = options.some((option) => option.value === normalizedPreferredValue) ? normalizedPreferredValue : "all";
+  };
   const galleryOrders = {
     "auto-7.html": [
       "WhatsApp Image 2026-04-28 at 17.42.47.jpeg",
@@ -311,6 +348,14 @@ document.addEventListener("DOMContentLoaded", () => {
     syncHomeStatusButtons();
   }
 
+  const homeBrandSelect = document.getElementById("homeBrand");
+  const homeModelSelect = document.getElementById("homeModel");
+
+  if (homeBrandSelect && homeModelSelect) {
+    updateModelSelect(homeModelSelect, homeBrandSelect.value || "all");
+    homeBrandSelect.addEventListener("change", () => updateModelSelect(homeModelSelect, homeBrandSelect.value || "all"));
+  }
+
   if (filterForm) {
     const searchInput = filterForm.querySelector("[data-filter-search]");
     const brandSelect = filterForm.querySelector("[data-filter-brand]");
@@ -332,11 +377,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const groups = [...document.querySelectorAll("[data-filter-group]")];
     const resultCount = document.querySelector("[data-filter-count]");
     const emptyState = document.querySelector("[data-filter-empty]");
+    const filterToggle = filterForm.querySelector("[data-filter-toggle]");
+    const filterContent = filterForm.querySelector("[data-filter-content]");
     const params = new URLSearchParams(window.location.search);
 
     if (searchInput && params.has("q")) searchInput.value = params.get("q") || "";
     if (brandSelect && params.has("brand")) brandSelect.value = params.get("brand") || "all";
-    if (modelSelect && params.has("model")) modelSelect.value = params.get("model") || "all";
+    updateModelSelect(modelSelect, brandSelect?.value || "all", params.has("model") ? params.get("model") : modelSelect?.value);
     if (fuelSelect && params.has("fuel")) fuelSelect.value = params.get("fuel") || "all";
     if (statusSelect && params.has("status")) statusSelect.value = params.get("status") || "all";
     if (transmissionSelect && params.has("transmission")) transmissionSelect.value = params.get("transmission") || "all";
@@ -369,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const matchesSearch = !searchValue || haystack.includes(searchValue);
         const matchesBrand = brandValue === "all" || (item.dataset.brand || "") === brandValue;
-        const matchesModel = modelValue === "all" || (item.dataset.model || "") === modelValue;
+        const matchesModel = modelValue === "all" || normalizeModelValue(item.dataset.model || "") === modelValue;
         const matchesFuel = fuelValue === "all" || (item.dataset.fuel || "") === fuelValue;
         const matchesStatus = statusValue === "all" || (item.dataset.status || "") === statusValue;
         const matchesTransmission = transmissionValue === "all" || (item.dataset.transmission || "") === transmissionValue;
@@ -418,7 +465,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     searchInput?.addEventListener("input", applyFilters);
-    brandSelect?.addEventListener("change", applyFilters);
+    brandSelect?.addEventListener("change", () => {
+      updateModelSelect(modelSelect, brandSelect.value || "all");
+      applyFilters();
+    });
     modelSelect?.addEventListener("change", applyFilters);
     fuelSelect?.addEventListener("change", applyFilters);
     statusSelect?.addEventListener("change", applyFilters);
@@ -440,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resetButton?.addEventListener("click", () => {
       if (searchInput) searchInput.value = "";
       if (brandSelect) brandSelect.value = "all";
-      if (modelSelect) modelSelect.value = "all";
+      updateModelSelect(modelSelect, "all", "all");
       if (fuelSelect) fuelSelect.value = "all";
       if (statusSelect) statusSelect.value = "all";
       if (transmissionSelect) transmissionSelect.value = "all";
@@ -450,6 +500,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (kmMaxSelect) kmMaxSelect.value = "all";
       if (priceMaxSelect) priceMaxSelect.value = "all";
       applyFilters();
+    });
+
+    filterToggle?.addEventListener("click", () => {
+      const isExpanded = filterToggle.getAttribute("aria-expanded") !== "false";
+      filterToggle.setAttribute("aria-expanded", String(!isExpanded));
+      filterForm.classList.toggle("is-collapsed", isExpanded);
+      if (filterContent) {
+        filterContent.hidden = isExpanded;
+      }
     });
 
     applyFilters();

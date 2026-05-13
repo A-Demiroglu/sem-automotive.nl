@@ -910,7 +910,7 @@ img {
 
 .stock-filter-section {
   position: relative;
-  margin-top: -2rem;
+  margin-top: 2rem;
   padding-bottom: 1.5rem;
   z-index: 2;
 }
@@ -921,6 +921,45 @@ img {
   overflow: visible;
   background: linear-gradient(180deg, rgba(12, 12, 12, 0.98), rgba(5, 5, 5, 0.99));
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.52);
+}
+
+.stock-search-header {
+  padding: 1rem 1rem 0;
+}
+
+.stock-filter-toggle {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.stock-filter-toggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 59, 59, 0.38);
+}
+
+.stock-filter-toggle i {
+  transition: transform 0.2s ease;
+}
+
+.stock-search-shell.is-collapsed .stock-filter-toggle i {
+  transform: rotate(180deg);
+}
+
+.stock-search-shell.is-collapsed [data-filter-content] {
+  display: none;
 }
 
 .stock-search-shell-home {
@@ -1131,11 +1170,15 @@ img {
   }
 
   .stock-filter-section {
-    margin-top: -1rem;
+    margin-top: 1rem;
   }
 
   .stock-search-tabs {
     gap: 0.3rem;
+    padding: 1rem 1rem 0;
+  }
+
+  .stock-search-header {
     padding: 1rem 1rem 0;
   }
 
